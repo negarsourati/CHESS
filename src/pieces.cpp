@@ -16,3 +16,7 @@ vector<Move>Piece:: PieceMoves(string board[8][8])
     vector<Move> allvalidmoves;
     return allvalidmoves;
 }
+void load_texture()
+{
+
+}

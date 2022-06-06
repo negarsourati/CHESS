@@ -3,6 +3,7 @@ Bishop::Bishop(int x, int y,int color)
     : Piece(x, y, color)
 {
     type = 'B';
+    this->load_texture();
 }
 bool Bishop::validMove(Position dest, string board[8][8])
 {
@@ -131,4 +132,11 @@ vector<Move> Bishop::PieceMoves(string board[8][8])
     }
     return allvalidmoves;
 }      
-
+void Bishop::load_texture()
+{
+    //pieceTexture.loadFromFile(get_piece_path(this));
+    this->sprite.setTexture(pieceTexture);
+    float piece_scale_x = (float)100 / this->sprite.getTexture()->getSize().x;
+    float piece_scale_y = (float)100 / this->sprite.getTexture()->getSize().y;
+    this->sprite.setScale(piece_scale_x, piece_scale_y);
+}

@@ -7,4 +7,5 @@ class Bishop : public Piece
         Bishop(int x, int y,int color);
         bool validMove(Position dest, string board[8][8]);
         vector<Move> PieceMoves(string board[8][8]);
+        virtual void load_texture();
 };    

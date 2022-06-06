@@ -4,47 +4,62 @@ Board::Board(sf::RenderWindow* _window) : window(_window)
     //index[0] = index[1] = 0;
     //string colorMode;
     //cin >> colorMode;
-    //for(int i = 0; i < 8; i++)
-    //    for(int j = 0; j < 8; j++)
-    //        cin >> board[i][j];
+    for(int i = 0; i < 8; i++)
+        for(int j = 0; j < 8; j++)
+            board[i][j] = "--";
+    board[0][0], board[0][7] = "WR";
+    board[0][1], board[0][6] = "WN";
+    board[0][2], board[0][5] = "WB";
+    board[0][3] = "WK";
+    board[0][4] = "WQ";
+    for(int i = 0; i < 8; i++)
+        board[1][i] = "WP";
+    board[7][0], board[7][7] = "BR";
+    board[7][1], board[7][6] = "BN";
+    board[7][2], board[7][5] = "BB";
+    board[7][3] = "BK";
+    board[7][4] = "BQ";
+    for(int i = 0; i < 8; i++)
+        board[6][i] = "BP";        
     int color;
-    //char t, c;
-    //Piece* sample; 
-    //for(int i = 0; i < 8; i++)
-    //{
-    //    for(int j = 0; j < 8; j++)
-    //    {
-    //        t = board[i][j][0];
-    //        c = board[i][j][1];
-    //        if(c == 'W')
-    //            color = 0;
-    //        else if (c == 'B')    
-    //            color = 1;
-    //        else
-    //            color = -1;   
-    //        if(t == 'K')
-    //            sample = new King(i, j, color);
-    //        else if(t == 'Q')
-    //            sample = new Queen(i, j, color);
-    //        else if(t == 'P')
-    //            sample = new Pawn(i, j, color);
-    //        else if(t == 'B')
-    //            sample = new Bishop(i, j, color);
-    //        else if(t == 'N')
-    //            sample = new Knight(i, j, color); 
-    //        else if(t == 'R')
-    //            sample = new Rook(i, j, color);  
-    //        else
-    //            sample = new Piece(-1, -1, -1);    
+    char t, c;
+    Piece* sample;
+    for(int i = 0; i < 8; i++)
+    {
+        for(int j = 0; j < 8; j++)
+        {
+            t = board[i][j][0];
+            c = board[i][j][1];
+            if(c == 'W')
+                color = 0;
+            else if (c == 'B')    
+                color = 1;
+            else
+                color = -1;   
+            if(t == 'K')
+                sample = new King(i, j, color);
+            else if(t == 'Q')
+                sample = new Queen(i, j, color);
+            else if(t == 'P')
+                sample = new Pawn(i, j, color);
+            else if(t == 'B')
+                sample = new Bishop(i, j, color);
+            else if(t == 'N')
+                sample = new Knight(i, j, color); 
+            else if(t == 'R')
+                sample = new Rook(i, j, color);  
+            else
+                sample = new Piece(-1, -1, -1);    
     //        if(sample->color != -1) 
     //        {
     //            pieces[sample->color][index[sample->color]] = sample;
     //            index[sample->color]++;
     //        }
-    //    }
-    //}
+        }
+    }
     //this->window->setFramerateLimit(60);
     //int cl = (colorMode[0] == 'W') ? 0 : 1;
+    
 }
 void Board::MoveThePiece(Piece* piece, Position dest, int mode = 1)
 {
@@ -198,7 +213,6 @@ void Board::mouse_clicked(const sf::Vector2i& position)
     if (this->cells[row][column].cell_status == EMPTY)
         this->cell_empty_clicked(row, column);
 }
-
 void Board::cell_empty_clicked(int row, int column)
 {
     //put_xo_in_cell(row, column);
