@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/oem/Downloads/CHESS/src/Queen.cpp" "/home/oem/Downloads/CHESS/CMakeFiles/CHESS.dir/src/Queen.cpp.o"
   "/home/oem/Downloads/CHESS/src/Rook.cpp" "/home/oem/Downloads/CHESS/CMakeFiles/CHESS.dir/src/Rook.cpp.o"
   "/home/oem/Downloads/CHESS/src/board.cpp" "/home/oem/Downloads/CHESS/CMakeFiles/CHESS.dir/src/board.cpp.o"
+  "/home/oem/Downloads/CHESS/src/helper.cpp" "/home/oem/Downloads/CHESS/CMakeFiles/CHESS.dir/src/helper.cpp.o"
   "/home/oem/Downloads/CHESS/src/main.cpp" "/home/oem/Downloads/CHESS/CMakeFiles/CHESS.dir/src/main.cpp.o"
   "/home/oem/Downloads/CHESS/src/pieces.cpp" "/home/oem/Downloads/CHESS/CMakeFiles/CHESS.dir/src/pieces.cpp.o"
   )

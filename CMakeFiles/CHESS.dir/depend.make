@@ -45,9 +45,18 @@ CMakeFiles/CHESS.dir/src/board.cpp.o: headers/Pawn.h
 CMakeFiles/CHESS.dir/src/board.cpp.o: headers/Queen.h
 CMakeFiles/CHESS.dir/src/board.cpp.o: headers/Rook.h
 CMakeFiles/CHESS.dir/src/board.cpp.o: headers/board.h
+CMakeFiles/CHESS.dir/src/board.cpp.o: headers/cell.h
+CMakeFiles/CHESS.dir/src/board.cpp.o: headers/data.h
 CMakeFiles/CHESS.dir/src/board.cpp.o: headers/first.h
+CMakeFiles/CHESS.dir/src/board.cpp.o: headers/helper.h
+CMakeFiles/CHESS.dir/src/board.cpp.o: headers/mohre.h
 CMakeFiles/CHESS.dir/src/board.cpp.o: headers/pieces.h
 CMakeFiles/CHESS.dir/src/board.cpp.o: headers/second.h
+
+CMakeFiles/CHESS.dir/src/helper.cpp.o: src/helper.cpp
+CMakeFiles/CHESS.dir/src/helper.cpp.o: headers/data.h
+CMakeFiles/CHESS.dir/src/helper.cpp.o: headers/first.h
+CMakeFiles/CHESS.dir/src/helper.cpp.o: headers/helper.h
 
 CMakeFiles/CHESS.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/CHESS.dir/src/main.cpp.o: headers/Bishop.h
@@ -57,7 +66,11 @@ CMakeFiles/CHESS.dir/src/main.cpp.o: headers/Pawn.h
 CMakeFiles/CHESS.dir/src/main.cpp.o: headers/Queen.h
 CMakeFiles/CHESS.dir/src/main.cpp.o: headers/Rook.h
 CMakeFiles/CHESS.dir/src/main.cpp.o: headers/board.h
+CMakeFiles/CHESS.dir/src/main.cpp.o: headers/cell.h
+CMakeFiles/CHESS.dir/src/main.cpp.o: headers/data.h
 CMakeFiles/CHESS.dir/src/main.cpp.o: headers/first.h
+CMakeFiles/CHESS.dir/src/main.cpp.o: headers/helper.h
+CMakeFiles/CHESS.dir/src/main.cpp.o: headers/mohre.h
 CMakeFiles/CHESS.dir/src/main.cpp.o: headers/pieces.h
 CMakeFiles/CHESS.dir/src/main.cpp.o: headers/second.h
 

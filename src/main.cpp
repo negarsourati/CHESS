@@ -1,8 +1,8 @@
 #include"board.h"
-using namespace std;
-//using namespace sf;
+using namespace sf;
 int main()
 {   
-    //RenderWindow window(VideoMode(520, 400), "CHESS", Style::Titlebar | Style::Close);
-    Board chessBoard;
+    RenderWindow window(VideoMode(900, 900), "CHESS", Style::Titlebar | Style::Close);
+    Board chessBoard(&window);
+    chessBoard.run();
 }

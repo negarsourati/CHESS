@@ -6,43 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/oem/Downloads/CHESS/src/Bishop.cpp
-Bishop.h
-/home/oem/Downloads/CHESS/src/Bishop.h
-
-/home/oem/Downloads/CHESS/src/King.cpp
-King.h
-/home/oem/Downloads/CHESS/src/King.h
-
-/home/oem/Downloads/CHESS/src/Knight.cpp
-Knight.h
-/home/oem/Downloads/CHESS/src/Knight.h
-
-/home/oem/Downloads/CHESS/src/Pawn.cpp
-Pawn.h
-/home/oem/Downloads/CHESS/src/Pawn.h
-
-/home/oem/Downloads/CHESS/src/Queen.cpp
-Queen.h
-/home/oem/Downloads/CHESS/src/Queen.h
-
-/home/oem/Downloads/CHESS/src/Rook.cpp
-Rook.h
-/home/oem/Downloads/CHESS/src/Rook.h
-
 /home/oem/Downloads/CHESS/src/board.cpp
 board.h
 /home/oem/Downloads/CHESS/src/board.h
-
-/home/oem/Downloads/CHESS/src/main.cpp
-board.h
-/home/oem/Downloads/CHESS/src/board.h
-
-/home/oem/Downloads/CHESS/src/pieces.cpp
-first.h
-/home/oem/Downloads/CHESS/src/first.h
-pieces.h
-/home/oem/Downloads/CHESS/src/pieces.h
 
 headers/Bishop.h
 first.h
@@ -113,6 +79,20 @@ Rook.h
 headers/Rook.h
 Queen.h
 headers/Queen.h
+cell.h
+headers/cell.h
+helper.h
+headers/helper.h
+
+headers/cell.h
+vector
+-
+data.h
+headers/data.h
+mohre.h
+headers/mohre.h
+
+headers/data.h
 
 headers/first.h
 iostream
@@ -123,6 +103,20 @@ string
 -
 cmath
 -
+
+headers/helper.h
+first.h
+headers/first.h
+SFML/Graphics.hpp
+headers/SFML/Graphics.hpp
+data.h
+headers/data.h
+
+headers/mohre.h
+SFML/Graphics.hpp
+headers/SFML/Graphics.hpp
+pieces.h
+headers/pieces.h
 
 headers/pieces.h
 first.h

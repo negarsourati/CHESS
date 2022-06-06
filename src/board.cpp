@@ -1,49 +1,50 @@
 #include "board.h"
-Board::Board()
+Board::Board(sf::RenderWindow* _window) : window(_window)
 {
-    index[0] = index[1] = 0;
-    string colorMode;
-    cin >> colorMode;
-    for(int i = 0; i < 8; i++)
-        for(int j = 0; j < 8; j++)
-            cin >> board[i][j];
+    //index[0] = index[1] = 0;
+    //string colorMode;
+    //cin >> colorMode;
+    //for(int i = 0; i < 8; i++)
+    //    for(int j = 0; j < 8; j++)
+    //        cin >> board[i][j];
     int color;
-    char t, c;
-    Piece* sample; 
-    for(int i = 0; i < 8; i++)
-    {
-        for(int j = 0; j < 8; j++)
-        {
-            t = board[i][j][0];
-            c = board[i][j][1];
-            if(c == 'W')
-                color = 0;
-            else if (c == 'B')    
-                color = 1;
-            else
-                color = -1;   
-            if(t == 'K')
-                sample = new King(i, j, color);
-            else if(t == 'Q')
-                sample = new Queen(i, j, color);
-            else if(t == 'P')
-                sample = new Pawn(i, j, color);
-            else if(t == 'B')
-                sample = new Bishop(i, j, color);
-            else if(t == 'N')
-                sample = new Knight(i, j, color); 
-            else if(t == 'R')
-                sample = new Rook(i, j, color);  
-            else
-                sample = new Piece(-1, -1, -1);    
-            if(sample->color != -1) 
-            {
-                pieces[sample->color][index[sample->color]] = sample;
-                index[sample->color]++;
-            }
-        }
-    }
-    int cl = (colorMode[0] == 'W') ? 0 : 1;
+    //char t, c;
+    //Piece* sample; 
+    //for(int i = 0; i < 8; i++)
+    //{
+    //    for(int j = 0; j < 8; j++)
+    //    {
+    //        t = board[i][j][0];
+    //        c = board[i][j][1];
+    //        if(c == 'W')
+    //            color = 0;
+    //        else if (c == 'B')    
+    //            color = 1;
+    //        else
+    //            color = -1;   
+    //        if(t == 'K')
+    //            sample = new King(i, j, color);
+    //        else if(t == 'Q')
+    //            sample = new Queen(i, j, color);
+    //        else if(t == 'P')
+    //            sample = new Pawn(i, j, color);
+    //        else if(t == 'B')
+    //            sample = new Bishop(i, j, color);
+    //        else if(t == 'N')
+    //            sample = new Knight(i, j, color); 
+    //        else if(t == 'R')
+    //            sample = new Rook(i, j, color);  
+    //        else
+    //            sample = new Piece(-1, -1, -1);    
+    //        if(sample->color != -1) 
+    //        {
+    //            pieces[sample->color][index[sample->color]] = sample;
+    //            index[sample->color]++;
+    //        }
+    //    }
+    //}
+    //this->window->setFramerateLimit(60);
+    //int cl = (colorMode[0] == 'W') ? 0 : 1;
 }
 void Board::MoveThePiece(Piece* piece, Position dest, int mode = 1)
 {
@@ -159,4 +160,89 @@ string Board::resultFormat(Piece* piece, Move move)
     p1[0] = (char) ('a'+ move.end.y);
     p1[1] =('8' - move.end.x) ;
     return p0+pp+p1;
+}
+void Board::init()
+{
+    end = false;
+    this->cells.resize(8);
+    for(int row = 0; row < 8; row++)
+    {
+        this->cells[row].resize(8);
+        for(int col = 0; col < 8; col++)
+        {
+            this->cells[row][col].rect.setSize(sf::Vector2f(100, 100));
+            if((col+row)%2 == 1)
+            {   
+                this->cells[row][col].rect.setFillColor(sf::Color::Black);
+            }
+            else
+            {
+                this->cells[row][col].rect.setFillColor(sf::Color::White);
+            }
+            this->cells[row][col].rect.setPosition(get_cell_position(row, col));
+        }
+    }
+
+    font.loadFromFile("images/roboto.ttf");
+    status_text.setFont(font);
+    status_text.setCharacterSize(20);
+    status_text.setStyle(sf::Text::Regular);
+    status_text.setFillColor(sf::Color::Red);
+    status_text.setPosition(820.f, 100.f);
+}
+void Board::mouse_clicked(const sf::Vector2i& position)
+{   
+    int row = get_cell_index(position.y), column = get_cell_index(position.x);
+    if (row == -1 || column == -1)
+        return;
+    if (this->cells[row][column].cell_status == EMPTY)
+        this->cell_empty_clicked(row, column);
+}
+
+void Board::cell_empty_clicked(int row, int column)
+{
+    //put_xo_in_cell(row, column);
+    //this->end = this->curr_user->check_win(this->cells);
+    //if (this->end)
+    //    return;
+    //this->curr_user = this->curr_user->id == X ? this->user_o : this->user_x;
+}
+void Board::draw()
+{
+    for (int row = 0; row < 8; row++)
+        for (int column = 0; column < 8; column++)
+        {
+            this->window->draw(this->cells[row][column].rect);
+            //if (this->cells[row][column].cell_status == OCCUPIED)
+            //    this->window->draw(this->cells[row][column].xo->sprite);
+        }
+    this->window->draw(this->status_text);
+}
+void Board::run()
+{
+    this->init();
+    this->window->display();
+    while (this->window->isOpen()) {    
+        sf::Event event;
+        while (this->window->pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                this->window->close();
+            }
+            if (!this->end && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                this->mouse_clicked(sf::Mouse::getPosition(*(this->window)));
+            }
+        }
+        this->window->clear(sf::Color(150, 150, 150));
+        this->update_status_text();
+        this->draw();
+        this->window->display();
+    }
+}
+void Board::update_status_text()
+{
+    string cl = (0) ? "WHITE" : "BLACK";
+    if (this->end)
+        status_text.setString(cl + " Wins!");
+    else
+        status_text.setString(cl + "\n" + "Turn");
 }
